@@ -1,5 +1,4 @@
 import os
-import requests
 import urllib.request
 import wget as wget
 # from keras.utils.image_utils import load_img

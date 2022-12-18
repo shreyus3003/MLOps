@@ -1,8 +1,8 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 
 import os
-import model
+# import model
 
 app = Flask(__name__)
 
@@ -13,12 +13,12 @@ def predict():
         if uploaded_image.filename != '':
             image_path = os.path.join('static', uploaded_image.filename)
             uploaded_image.save(image_path)
-            preprecessed_image = model.preprocessData(image_path)
-            predicted_value = model.mnist_model.predict(preprecessed_image)
-            result = { 'predicted_image' : predicted_value}
+            # preprecessed_image = model.preprocessData(image_path)
+            # predicted_value = model.mnist_model.predict(preprecessed_image)
+            result = { 'predicted_image' : 2}
             return render_template('result.html', result=result)
-    return reder_template('index.html')
+    return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug = True)
+    app.run( debug = True)
 
